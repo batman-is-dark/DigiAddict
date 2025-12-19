@@ -34,7 +34,7 @@ export default function Plan() {
     <div className="container animate-slide-up">
       <header style={{ marginBottom: '4rem' }}>
         <h2 className="gradient-text" style={{ fontSize: '3rem' }}>Behavioral Hygiene Report</h2>
-        <p style={{ color: 'var(--secondary)' }}>Stochastic interventions based on your personal 30-day forecast.</p>
+        <p style={{ color: 'var(--secondary)' }}>Personalized habit recommendations based on your 30-day behavior forecast.</p>
       </header>
 
       <div className="grid" style={{ gridTemplateColumns: '1fr 2fr', alignItems: 'start' }}>
@@ -71,7 +71,7 @@ export default function Plan() {
           <div className="glass card" style={{ background: 'hsla(210, 20%, 100%, 0.02)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
               <Zap color="var(--warning)" size={18} />
-              <h4 style={{ margin: 0, fontSize: '0.9rem' }}>Probabilistic Shift</h4>
+              <h4 style={{ margin: 0, fontSize: '0.9rem' }}>Impact Forecast</h4>
             </div>
             <p style={{ fontSize: '0.8rem', color: 'var(--secondary)' }}>
               A 15% reduction in "High" state duration today will correlate with a 24% decrease in "Addiction" risk by end-of-month.
@@ -85,8 +85,8 @@ export default function Plan() {
               <Sparkles color="var(--primary)" size={24} />
             </div>
             <div>
-              <h3 style={{ margin: 0, fontSize: '1.75rem' }}>Stochastic Interventions</h3>
-              <p style={{ fontSize: '0.9rem', margin: 0 }}>High-impact micro-behaviors to steer your transition matrix.</p>
+              <h3 style={{ margin: 0, fontSize: '1.75rem' }}>Habit Reset Plan</h3>
+              <p style={{ fontSize: '0.9rem', margin: 0 }}>Small daily actions to help you regain control of your digital habits.</p>
             </div>
           </div>
 
@@ -108,9 +108,9 @@ export default function Plan() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Calendar size={20} color="var(--primary)" />
-                <span style={{ fontWeight: 800, letterSpacing: '0.02em', color: 'var(--foreground)' }}>7-DAY TRANSITION TRACKING</span>
+                <span style={{ fontWeight: 800, letterSpacing: '0.02em', color: 'var(--foreground)' }}>7-DAY HABIT TRACKER</span>
               </div>
-              <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 600 }}>STOCHASTIC TARGET: LOW</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 600 }}>GOAL: LOW USAGE</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '1rem' }}>
               {Array.from({ length: 7 }).map((_, i) => (
