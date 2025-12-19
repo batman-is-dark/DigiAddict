@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'DigiAddict | AI-Powered Behavioral Modeling',
   description: 'Model your digital addiction risk using Markov Chains and receive AI-tailored hygiene plans.',
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
