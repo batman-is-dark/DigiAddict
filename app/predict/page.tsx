@@ -114,13 +114,13 @@ export default function Predict() {
         </div>
       </div>
 
-      <div className="grid" style={{ marginTop: '1.5rem' }}>
-        <div className="glass card" style={{ borderLeft: '4px solid var(--primary)' }}>
+      <div className="grid" style={{ marginTop: '1.5rem', gridTemplateColumns: '1fr 1.4fr 1fr', gap: '1.5rem' }}>
+        <div className="glass card" style={{ borderLeft: '4px solid var(--primary)', padding: '2rem' }}>
           <h3 style={{ fontSize: '1.25rem' }}>Stakeholder Summary</h3>
           <p style={{ color: 'white', fontWeight: 600, marginBottom: '1.5rem' }}>
             What does a {(risk * 100).toFixed(0)}% Risk Score mean?
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
               <p style={{ fontSize: '0.9rem', color: 'var(--secondary)', lineHeight: '1.5' }}>
                 This is <strong>not</strong> a measure of total time. It represents the statistical probability that your behavioral transitions will lead you into the "Addiction" state by Day 30.
@@ -136,36 +136,36 @@ export default function Predict() {
           </div>
         </div>
 
-        <div className="glass card">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
+        <div className="glass card" style={{ padding: '2rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
             <div style={{ background: 'hsla(210, 20%, 100%, 0.05)', padding: '10px', borderRadius: '12px' }}>
               <Info color="var(--secondary)" size={20} />
             </div>
-            <h3 style={{ margin: 0 }}>Behavioral Transition Matrix</h3>
+            <h3 style={{ margin: 0, fontSize: '1.5rem' }}>Behavioral Transition Matrix</h3>
           </div>
-          <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', marginBottom: '2rem' }}>
+          <p style={{ color: 'var(--secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
             Estimated probabilities of moving between usage states based on your history. Higher numbers indicate stronger "behavioral gravity".
           </p>
           <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '8px' }}>
+            <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '4px' }}>
               <thead>
                 <tr>
-                  <th style={{ textAlign: 'left', color: 'var(--secondary)', fontSize: '0.75rem', padding: '10px' }}>FROM \ TO</th>
+                  <th style={{ textAlign: 'left', color: 'var(--secondary)', fontSize: '0.7rem', padding: '8px' }}>FROM \ TO</th>
                   {['LOW', 'MED', 'HIGH', 'ADDICT'].map(s => (
-                    <th key={s} style={{ color: 'var(--secondary)', fontSize: '0.75rem', fontWeight: 800 }}>{s}</th>
+                    <th key={s} style={{ color: 'var(--secondary)', fontSize: '0.7rem', fontWeight: 800 }}>{s}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {['Low', 'Medium', 'High', 'Addiction'].map((state, i) => (
                   <tr key={state}>
-                    <td style={{ fontWeight: 700, fontSize: '0.85rem', color: 'white', padding: '10px' }}>{state.toUpperCase()}</td>
+                    <td style={{ fontWeight: 700, fontSize: '0.75rem', color: 'white', padding: '8px' }}>{state.toUpperCase()}</td>
                     {matrix[i].map((p, j) => (
                       <td key={j} style={{ 
                           textAlign: 'center',
-                          padding: '12px',
-                          borderRadius: '12px',
-                          fontSize: '0.9rem',
+                          padding: '10px',
+                          borderRadius: '10px',
+                          fontSize: '0.85rem',
                           fontWeight: 700,
                           background: `hsla(210, 100%, 50%, ${Math.max(0.03, p * 0.2)})`,
                           color: p > 0.4 ? 'var(--primary)' : 'var(--secondary)',
@@ -181,28 +181,28 @@ export default function Predict() {
           </div>
         </div>
         
-        <div className="glass card">
-          <h3 style={{ marginBottom: '1.5rem' }}>Forecasting Methodology</h3>
+        <div className="glass card" style={{ padding: '2rem' }}>
+          <h3 style={{ marginBottom: '1.5rem', fontSize: '1.25rem' }}>Forecasting Methodology</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <div style={{ width: '4px', height: 'auto', background: 'var(--primary)', borderRadius: '2px' }}></div>
               <div>
-                <p style={{ fontWeight: 600, color: 'white', fontSize: '0.9rem', marginBottom: '4px' }}>State Persistence</p>
-                <p style={{ fontSize: '0.85rem' }}>The diagonal of the matrix represents your habit strength. High diagonal values indicate "sticky" behavior.</p>
+                <p style={{ fontWeight: 600, color: 'white', fontSize: '0.85rem', marginBottom: '4px' }}>State Persistence</p>
+                <p style={{ fontSize: '0.8rem' }}>The diagonal of the matrix represents your habit strength. High diagonal values indicate "sticky" behavior.</p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <div style={{ width: '4px', height: 'auto', background: 'var(--accent)', borderRadius: '2px' }}></div>
               <div>
-                <p style={{ fontWeight: 600, color: 'white', fontSize: '0.9rem', marginBottom: '4px' }}>Stochastic Progression</p>
-                <p style={{ fontSize: '0.85rem' }}>Random walks are simulated 10,000 times to compute the expected state distribution over 30 days.</p>
+                <p style={{ fontWeight: 600, color: 'white', fontSize: '0.85rem', marginBottom: '4px' }}>Stochastic Progression</p>
+                <p style={{ fontSize: '0.8rem' }}>Random walks are simulated 10,000 times to compute the expected state distribution over 30 days.</p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <div style={{ width: '4px', height: 'auto', background: 'var(--secondary)', borderRadius: '2px' }}></div>
               <div>
-                <p style={{ fontWeight: 600, color: 'white', fontSize: '0.9rem', marginBottom: '4px' }}>Matrix Estimation</p>
-                <p style={{ fontSize: '0.85rem' }}>We use Maximum Likelihood Estimation (MLE) to derive the most probable T-matrix from your logs.</p>
+                <p style={{ fontWeight: 600, color: 'white', fontSize: '0.85rem', marginBottom: '4px' }}>Matrix Estimation</p>
+                <p style={{ fontSize: '0.8rem' }}>We use Maximum Likelihood Estimation (MLE) to derive the most probable T-matrix from your logs.</p>
               </div>
             </div>
           </div>
